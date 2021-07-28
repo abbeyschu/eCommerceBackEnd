@@ -14,7 +14,7 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     product_name: {
       type: DataTypes.STRING,
@@ -25,7 +25,7 @@ Product.init(
       allowNull: false,
       validate: {
         isDecimal: true
-      }
+      },
     },
     stock: {
       type: DataTypes.INTEGER,
@@ -33,17 +33,17 @@ Product.init(
       defaultValue: 10,
       validate: {
         isNumeric: true
-      }
+      },
     },
     category_id: {
       type: DataTypes.INTEGER,
+      foreignKey: true,
       references: {
         model: 'Category',
         key: 'id',
-        unique: false
       }
     }
-  }
+  },
   {
     sequelize,
     timestamps: false,
